@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSC Mock Result Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      text-align: center;
+      padding: 40px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      max-width: 400px;
+      width: 100%;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #005ea6; }
+    .result-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e8f5e9;
+      border: 1px solid #4caf50;
+      border-radius: 8px;
+      display: none;
+    }
+    .heading {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>UPSC Mock Result Portal</h2>
+    <p>Enter your details to view your result</p>
+    <input id="name" type="text" placeholder="Enter Name" />
+    <input id="dob" type="text" placeholder="Enter Date of Birth (DD/MM/YYYY)" />
+    <button onclick="showResult()">View Result</button>
+
+    <div id="result" class="result-box">
+      <div class="heading">Civil Services (Main) Mock Result</div>
+      <p id="marks"></p>
+      <p id="rank"></p>
+      <p id="status"></p>
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <script>
+    function showResult() {
+      const name = document.getElementById('name').value.trim().toUpperCase();
+      const dob = document.getElementById('dob').value.trim();
+
+      const resultBox = document.getElementById('result');
+      const marksEl = document.getElementById('marks');
+      const rankEl = document.getElementById('rank');
+      const statusEl = document.getElementById('status');
+      const msgEl = document.getElementById('message');
+
+      resultBox.style.display = 'none';
+
+      if (name === "KAVISHREE" && dob === "26/12/2003") {
+        marksEl.innerText = "Category: Curry Street Level\nCategory Rank: 12\nAll India Rank: 28";
+        rankEl.innerText = "Status: Selected for Interview";
+        statusEl.innerText = "";
+        msgEl.innerText = "🎉 Congratulations KAVISHREE! 🎉";
+      } else {
+        marksEl.innerText = "Marks: " + (450 + Math.floor(Math.random()*150)) + "/600";
+        rankEl.innerText = "All India Rank: " + (100 + Math.floor(Math.random()*900));
+        statusEl.innerText = "Status: Not Selected";
+        msgEl.innerText = "Better luck next time!";
+      }
+
+      resultBox.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
